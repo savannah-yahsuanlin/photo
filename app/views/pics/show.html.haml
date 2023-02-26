@@ -1,4 +1,6 @@
 %h1= @pic.title
 %p= @pic.description
 
-= link_to "Back to the", root_path
+= link_to "Back", root_path
+= link_to 'edit', edit_pic_path
+= link_to "delete", @pic, method: :delete, data: {confirm: 'are you sure?'},  class: "btn btn-danger"

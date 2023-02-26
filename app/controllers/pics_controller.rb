@@ -22,6 +22,24 @@ class PicsController < ApplicationController
     end
 	end
 
+	def edit
+	end
+
+	def update
+		if @pic.update(pic_params)
+			redirect_to @pic, notice: "Yes! It was updated!"
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@pic.destroy
+		flash[:success] = "The item was successfully destroyed."
+		redirect_to root_path
+	end
+
+
 	private
 	def pic_params
 		params.require(:pic).permit(:title, :description)
