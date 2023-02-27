@@ -1,5 +1,6 @@
 %h1= @pic.title
 %p= @pic.description
+%h4= @pic.user.email
 
 = link_to "Back", root_path
 = link_to 'edit', edit_pic_path
