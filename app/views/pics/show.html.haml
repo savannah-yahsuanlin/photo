@@ -1,10 +1,23 @@
--#- if @pic.image.url?
--#	= @pic.image.url
+#pic_show.row
+	.col-md-6.col-md-offset-3
+		.panel.panel-default
+			-#= image_tag @pic.image.url
+		.panel-body
+			%h1= @pic.title
+			%p= @pic.description
+		.panel-footer
+			.row
+				.col-md-6
+					%p.user
+						by
+						-#= @pic.user.email
+				.col-md-6
+					.btn-group.pull-right
+						= link_to like_pic_path(@pic), method: :put, class: "btn btn-default" do
+							%span.glyphicon.glyphicon-thumbs-up 
+							= @pic.get_upvotes.size
+			
+						-if user_signed_in?
+							= link_to 'edit', edit_pic_path
+							= link_to "delete", pic_path, method: :delete, data: {confirm: 'are you sure?'},  class: "btn btn-danger"
 
-%h1= @pic.title
-%p= @pic.description
-%h4= @pic.user.email
-
-= link_to "Back", root_path
-= link_to 'edit', edit_pic_path
-= link_to "delete", pic_path, method: :delete, data: {confirm: 'are you sure?'},  class: "btn btn-danger"
