@@ -42,6 +42,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.2.0'
+gem 'masonry-rails', '~> 0.2.1'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
